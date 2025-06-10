@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  school_year: MyString
+  description: MyString
+  required_equipment: MyString
+  teacher: one
+  subject: one
+
+two:
+  code: MyString
+  school_year: MyString
+  description: MyString
+  required_equipment: MyString
+  teacher: two
+  subject: two

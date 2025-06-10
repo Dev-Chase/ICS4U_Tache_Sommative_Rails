@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  floor_level: 1
+  building: one
+  directions: MyString
+
+two:
+  code: MyString
+  floor_level: 1
+  building: two
+  directions: MyString

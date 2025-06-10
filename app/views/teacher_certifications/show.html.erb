@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @teacher_certification %>
+
+<div>
+  <%= link_to "Edit this teacher certification", edit_teacher_certification_path(@teacher_certification) %> |
+  <%= link_to "Back to teacher certifications", teacher_certifications_path %>
+
+  <%= button_to "Destroy this teacher certification", @teacher_certification, method: :delete %>
+</div>

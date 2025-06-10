@@ -1,0 +1,37 @@
+<%= form_with(model: teacher_certification) do |form| %>
+  <% if teacher_certification.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(teacher_certification.errors.count, "error") %> prohibited this teacher_certification from being saved:</h2>
+
+      <ul>
+        <% teacher_certification.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :certifier, style: "display: block" %>
+    <%= form.text_field :certifier %>
+  </div>
+
+  <div>
+    <%= form.label :date_obtained, style: "display: block" %>
+    <%= form.datetime_field :date_obtained %>
+  </div>
+
+  <div>
+    <%= form.label :subject_id, style: "display: block" %>
+    <%= form.text_field :subject_id %>
+  </div>
+
+  <div>
+    <%= form.label :teacher_id, style: "display: block" %>
+    <%= form.text_field :teacher_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

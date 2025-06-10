@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  certifier: MyString
+  date_obtained: 2025-06-09 14:01:40
+  subject: one
+  teacher: one
+
+two:
+  certifier: MyString
+  date_obtained: 2025-06-09 14:01:40
+  subject: two
+  teacher: two

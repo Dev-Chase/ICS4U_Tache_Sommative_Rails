@@ -1,0 +1,12 @@
+<% content_for :title, "Editing teacher certification" %>
+
+<h1>Editing teacher certification</h1>
+
+<%= render "form", teacher_certification: @teacher_certification %>
+
+<br>
+
+<div>
+  <%= link_to "Show this teacher certification", @teacher_certification %> |
+  <%= link_to "Back to teacher certifications", teacher_certifications_path %>
+</div>
