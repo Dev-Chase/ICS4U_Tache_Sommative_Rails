@@ -1,0 +1,49 @@
+<div id=<%= "#{course.id} course" %>>
+  <p>
+    <strong>Name:</strong>
+    <%= course.name %>
+  </p>
+
+  <p>
+    <strong>Code:</strong>
+    <%= course.code %>
+  </p>
+
+  <p>
+    <strong>School year:</strong>
+    <%= course.school_year %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= course.description %>
+  </p>
+
+  <p>
+    <strong>Required equipment:</strong>
+    <%= course.required_equipment %>
+  </p>
+
+  <p>
+    <strong>Teacher:</strong>
+    <%= course.teacher.full_name %>
+  </p>
+
+  <p>
+    <strong>Subject:</strong>
+    <%= course.subject.name %>
+  </p>
+
+  <p>
+    <strong><%=link_to "Students", students_path(course_id: course.id) %></strong>
+  </p>
+
+  <p>
+    <strong><%=link_to "Prerequisites", courses_path(course_id: course.id) %></strong>
+  </p>
+
+  <p>
+    <strong><%=link_to "Sessions", course_sessions_path(course_id: course.id) %></strong>
+  </p>
+
+</div>

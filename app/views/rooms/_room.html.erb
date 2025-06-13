@@ -11,7 +11,7 @@
 
   <p>
     <strong>Building:</strong>
-    <%= room.building_id %>
+    <%= link_to room.building.name, building_path(room.building_id) %>
   </p>
 
   <p>

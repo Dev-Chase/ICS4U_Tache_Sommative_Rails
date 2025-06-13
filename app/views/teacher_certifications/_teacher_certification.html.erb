@@ -6,17 +6,17 @@
 
   <p>
     <strong>Date obtained:</strong>
-    <%= teacher_certification.date_obtained %>
+    <%= teacher_certification.date_obtained.strftime("%Y-%m-%d") %>
   </p>
 
   <p>
     <strong>Subject:</strong>
-    <%= teacher_certification.subject_id %>
+    <%= teacher_certification.subject.name %>
   </p>
 
   <p>
-    <strong>Teacher:</strong>
-    <%= teacher_certification.teacher_id %>
+    <strong>Recipient/Teacher:</strong>
+    <%= teacher_certification.teacher.full_name %>
   </p>
 
 </div>

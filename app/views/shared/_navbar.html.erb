@@ -1,0 +1,6 @@
+<div id="navbar">
+  <%= link_to "Home", "/" %>
+  <% %w[courses students course_prerequisites course_sessions buildings rooms student_courses teachers subjects teacher_certifications].each do |page| %>
+    <%= link_to page.split('_').map(&:capitalize).join(' '), send("#{page}_path"), class:("active" if params[:controller]==page) %>
+  <% end %>
+</div>

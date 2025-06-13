@@ -3,7 +3,11 @@ class CourseSessionsController < ApplicationController
 
   # GET /course_sessions or /course_sessions.json
   def index
-    @course_sessions = CourseSession.all
+    if params[:course_id]
+      @course_sessions = CourseSession.where(course_id: params[:course_id])
+    else
+      @course_sessions = CourseSession.all
+    end
   end
 
   # GET /course_sessions/1 or /course_sessions/1.json

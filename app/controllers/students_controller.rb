@@ -1,9 +1,14 @@
+#TODO: add a way to send a message to student's emergency_contact
 class StudentsController < ApplicationController
   before_action :set_student, only: %i[ show edit update destroy ]
 
   # GET /students or /students.json
   def index
-    @students = Student.all
+    if params[:course_id]
+      @students = Student.joins(:student_courses).where("student_courses.course_id=?", params[:course_id]).select("students.*")
+    else
+      @students = Student.all
+    end
   end
 
   # GET /students/1 or /students/1.json

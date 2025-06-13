@@ -2,14 +2,16 @@
 
 <% content_for :title, "Teacher certifications" %>
 
-<h1>Teacher certifications</h1>
+<h1><%= (params[:teacher_id]) ? "#{Teacher.find(params[:teacher_id]).full_name}'s" : "Teacher" %> Certifications</h1>
 
 <div id="teacher_certifications">
   <% @teacher_certifications.each do |teacher_certification| %>
-    <%= render teacher_certification %>
-    <p>
-      <%= link_to "Show this teacher certification", teacher_certification %>
-    </p>
+    <div class="table_entry" >
+      <%= render teacher_certification %>
+      <p>
+        <%= link_to "Show this teacher certification", teacher_certification %>
+      </p>
+    </div>
   <% end %>
 </div>
 

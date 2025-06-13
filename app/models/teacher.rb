@@ -1,5 +1,5 @@
 class Teacher < ApplicationRecord
-  belongs_to :main_subject # TODO: verify if good or needs to be changed to subjects or has_one
+  belongs_to :main_subject, class_name: "Subject"
   has_many :courses
   has_many :teacher_certifications
 

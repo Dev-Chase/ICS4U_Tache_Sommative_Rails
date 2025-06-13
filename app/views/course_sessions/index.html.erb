@@ -1,8 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Course sessions" %>
+<% content_for :title, "Course Sessions" %>
 
-<h1>Course sessions</h1>
+<h1><%= "#{Course.find(params[:course_id]).name} " if params[:course_id] %>Course Sessions</h1>
 
 <div id="course_sessions">
   <% @course_sessions.each do |course_session| %>

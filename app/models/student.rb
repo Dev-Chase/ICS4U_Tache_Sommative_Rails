@@ -1,5 +1,6 @@
 class Student < ApplicationRecord
   has_many :student_courses
+  has_many :courses, through: :student_courses
   
   validates :age, numericality: { only_integer: true }
   validates :first_name, presence: true, length: { minimum: 2, maximum: 100 }
@@ -9,7 +10,9 @@ class Student < ApplicationRecord
   # TODO: enforce formatting for emergency_contact?
   validates :emergency_contact, presence: true, length: { minimum: 10, maximum: 300 }
 
-  # TODO: create credits_obtained function
+  def credits_obtained
+    student_courses.where(credit_obtained: true).count
+  end
 
   def full_name
     "#{first_name} #{last_name}"

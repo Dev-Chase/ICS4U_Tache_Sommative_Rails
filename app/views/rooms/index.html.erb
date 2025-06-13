@@ -6,10 +6,12 @@
 
 <div id="rooms">
   <% @rooms.each do |room| %>
-    <%= render room %>
-    <p>
-      <%= link_to "Show this room", room %>
-    </p>
+    <div class="table_entry">
+      <%= render room %>
+      <p>
+        <%= link_to "Show this room", room %>
+      </p>
+    </div>
   <% end %>
 </div>
 

@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :building_id, style: "display: block" %>
-    <%= form.text_field :building_id %>
+    <%= form.collection_select :building_id, Building.order(:name), :id, :name, prompt:"Choisissez un batiment" %>
   </div>
 
   <div>

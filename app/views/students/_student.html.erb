@@ -34,4 +34,8 @@
     <%= student.credits_obtained %>
   </p>
 
+  <p>
+    <strong><%= link_to "Courses", courses_path(student_id: student.id) %></strong>
+  </p>
+
 </div>

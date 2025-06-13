@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :main_subject_id, style: "display: block" %>
-    <%= form.text_field :main_subject_id %>
+    <%= form.collection_select :main_subject_id, Subject.order(:name), :id, :name, prompt:"Choisissez un domaine" %>
   </div>
 
   <div>

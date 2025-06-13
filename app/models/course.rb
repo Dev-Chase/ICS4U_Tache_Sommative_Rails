@@ -3,6 +3,9 @@ class Course < ApplicationRecord
   belongs_to :subject
   has_many :course_sessions
   has_many :course_prerequisites
+  has_many :student_courses
+  has_many :students, through: :student_courses
+  has_many :prerequisites, through: :course_prerequisites, source: :prerequisite_course
 
   validates :teacher, presence: true
   validates :subject, presence: true

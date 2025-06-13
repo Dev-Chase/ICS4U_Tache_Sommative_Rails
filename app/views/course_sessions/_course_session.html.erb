@@ -1,22 +1,23 @@
 <div id="<%= dom_id course_session %>">
   <p>
     <strong>Course:</strong>
-    <%= course_session.course_id %>
+    <%= course_session.course.name %>
   </p>
 
   <p>
-    <strong>Room:</strong>
-    <%= course_session.room_id %>
+    <strong>Location:</strong>
+    <%= link_to "#{course_session.room.building.name}, Room #{course_session.room.code}", room_path(course_session.room_id) %>
   </p>
 
   <p>
     <strong>Start time:</strong>
-    <%= course_session.start_time %>
+    <%= course_session.start_time.strftime("%H:%M") %>
   </p>
 
   <p>
-    <strong>Duration:</strong>
-    <%= course_session.duration %>
+    <strong>Duration (hours):</strong>
+
+    <%= course_session.duration / 3600 %>
   </p>
 
   <p>

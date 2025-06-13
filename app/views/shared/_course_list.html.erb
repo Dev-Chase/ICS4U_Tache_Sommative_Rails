@@ -1,0 +1,10 @@
+<div id="courses">
+  <% @courses.each do |course| %>
+    <div class="table_entry">
+      <%= render partial: "shared/course", locals: {course: course} %>
+      <p>
+        <%= link_to "Show this course", course %>
+      </p>
+  </div>
+  <% end %>
+</div>

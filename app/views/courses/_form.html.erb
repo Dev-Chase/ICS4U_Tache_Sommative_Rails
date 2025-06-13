@@ -33,12 +33,12 @@
 
   <div>
     <%= form.label :teacher_id, style: "display: block" %>
-    <%= form.text_field :teacher_id %>
+    <%= form.collection_select :teacher_id, Teacher.order(:first_name, :last_name), :id, :full_name, prompt:"Choisissez un enseignant" %>
   </div>
 
   <div>
     <%= form.label :subject_id, style: "display: block" %>
-    <%= form.text_field :subject_id %>
+    <%= form.collection_select :subject_id, Subject.order(:name), :id, :name, prompt:"Choisissez un domaine" %>
   </div>
 
   <div>

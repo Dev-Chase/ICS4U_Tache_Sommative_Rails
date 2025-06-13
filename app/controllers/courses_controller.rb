@@ -3,7 +3,13 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
-    @courses = Course.all
+    if params[:student_id]
+      @courses = Course.joins(:student_courses).where("student_courses.student_id=?", params[:student_id]).select("courses.*")
+    elsif params[:course_id]
+      @courses = Course.find(params[:course_id]).prerequisites
+    else
+      @courses = Course.all
+    end
   end
 
   # GET /courses/1 or /courses/1.json

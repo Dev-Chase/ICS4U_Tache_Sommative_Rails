@@ -1,0 +1,12 @@
+<h1>Home</h1>
+<div>
+  <strong>School Year:</strong> <%= @school_year %>
+</div>
+<div>
+  <strong>Number of Students:</strong> <%= @number_of_students %>
+</div>
+<div>
+  <strong>Active Teachers:</strong> <%= @number_of_teachers %>
+</div>
+<h2>Current Courses:</h2>
+<%= render "shared/course_list" %>

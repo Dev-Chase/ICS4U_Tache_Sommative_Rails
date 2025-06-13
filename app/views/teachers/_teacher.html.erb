@@ -16,7 +16,11 @@
 
   <p>
     <strong>Main subject:</strong>
-    <%= teacher.main_subject_id %>
+    <%= link_to teacher.main_subject.name, subject_path(teacher.main_subject_id) %>
+  </p>
+
+  <p>
+    <%= link_to "Certifications", teacher_certifications_path(teacher_id: teacher.id) %>
   </p>
 
 </div>

@@ -3,7 +3,11 @@ class TeacherCertificationsController < ApplicationController
 
   # GET /teacher_certifications or /teacher_certifications.json
   def index
-    @teacher_certifications = TeacherCertification.all
+    if params[:teacher_id]
+      @teacher_certifications = TeacherCertification.where(teacher_id: params[:teacher_id])
+    else
+      @teacher_certifications = TeacherCertification.all
+    end
   end
 
   # GET /teacher_certifications/1 or /teacher_certifications/1.json

@@ -2,15 +2,8 @@
 
 <% content_for :title, "Courses" %>
 
-<h1>Courses</h1>
+<h1><%= "#{Student.find(params[:student_id]).full_name}'s " if params[:student_id] %>Courses</h1>
 
-<div id="courses">
-  <% @courses.each do |course| %>
-    <%= render course %>
-    <p>
-      <%= link_to "Show this course", course %>
-    </p>
-  <% end %>
-</div>
+<%= render "shared/course_list" %>
 
 <%= link_to "New course", new_course_path %>
