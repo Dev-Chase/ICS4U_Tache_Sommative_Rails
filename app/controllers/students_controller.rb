@@ -1,4 +1,3 @@
-#TODO: add a way to send a message to student's emergency_contact
 class StudentsController < ApplicationController
   before_action :set_student, only: %i[ show edit update destroy ]
 
@@ -7,8 +6,19 @@ class StudentsController < ApplicationController
     if params[:course_id]
       @students = Student.joins(:student_courses).where("student_courses.course_id=?", params[:course_id]).select("students.*")
     else
-      @students = Student.all
+      @students = Student.order(id: :desc)
     end
+  end
+
+  # POST /students/send_message
+  def send_message
+    message = params[:message]
+    student = Student.find(params[:student_id])
+    if student
+      Texto.new.envoye_message(student.emergency_contact, message)
+    end
+
+    redirect_to students_path
   end
 
   # GET /students/1 or /students/1.json

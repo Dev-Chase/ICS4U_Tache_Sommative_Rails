@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :course_prerequisites
   resources :student_courses
   resources :courses
-  resources :students
+  resources :students do
+    collection do
+      post :send_message
+    end
+  end
   resources :teacher_certifications
   resources :teachers
   resources :subjects

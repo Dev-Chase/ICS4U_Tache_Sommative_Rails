@@ -6,11 +6,24 @@
 
 <div id="students">
   <% @students.each do |student| %>
-    <div class="table_entry">
+    <div class="table_entry student_entry">
       <%= render student %>
       <p>
         <%= link_to "Show this student", student %>
       </p>
+    </div>
+    <div>
+      <%= form_with url: send_message_students_path, method: :post, local: true do |form| %>
+        <%= form.hidden_field :student_id, value: student.id %>
+        <div>
+          <%= form.label :message, "Enter your message:" %><br>
+          <%= form.text_field :message, placeholder: "Type your message here" %>
+        </div>
+
+        <div>
+          <%= form.submit "Send Message to #{student.full_name}'s emergency contact number" %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>

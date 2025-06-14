@@ -43,7 +43,7 @@ namespace :db do
         age: rand(14..19),
         grade_level: rand(9..12),
         grade_average: rand(45..98),
-        emergency_contact: "#{Faker::PhoneNumber.cell_phone}, #{Faker::Name.first_name}.#{Faker::Name.last_name}@gmail.com",
+        emergency_contact: Faker::PhoneNumber.cell_phone,
 		  )
 		end
 	  student_ids = Student.pluck(:id)
@@ -124,16 +124,18 @@ namespace :db do
       end
 
      # Course Sessions
-      50.times do
-        course = Course.find(course_ids.sample)
+      course_ids.each do |id|
+        course = Course.find(id)
         time_options = (8..15).flat_map { |hour| [0, 30].map {|min| Time.zone.now.change(hour: hour, min: min) } }
-        CourseSession.create(
-          course_id: course.id,
-          room_id: room_ids.sample,
-          start_time: time_options.sample,
-        duration: rand(1..6) * (3600 / 2),
-          day_of_week: rand(0..6)
-        )
+        3.times do
+          CourseSession.create(
+            course_id: course.id,
+            room_id: room_ids.sample,
+            start_time: time_options.sample,
+            duration: rand(1..6) * (3600 / 2),
+            day_of_week: rand(0..6)
+          )
+        end
       end
 
      # Student Courses
