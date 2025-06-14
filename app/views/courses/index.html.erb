@@ -2,7 +2,13 @@
 
 <% content_for :title, "Courses" %>
 
-<h1><%= "#{Student.find(params[:student_id]).full_name}'s " if params[:student_id] %>Courses</h1>
+<h1>
+  <% if params[:student_id] %>
+  <%= "#{Student.find(params[:student_id]).full_name}'s " if params[:student_id] %>
+  <% elsif params[:course_id] %>
+  <%= "#{Course.find(params[:course_id]).name}'s Prerequisite " if params[:course_id] %>
+  <% end %>
+Courses</h1>
 
 <%= render "shared/course_list" %>
 

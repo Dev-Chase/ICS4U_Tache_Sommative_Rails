@@ -9,6 +9,14 @@ class TeacherCertification < ApplicationRecord
   validates :date_obtained, presence: true
   validate :date_obtained_cannot_be_in_the_future
   
+  def self.ransackable_attributes(auth_object = nil)
+    column_names
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    reflect_on_all_associations.map(&:name).map(&:to_s)
+  end
+
   private
 
   def date_obtained_cannot_be_in_the_future

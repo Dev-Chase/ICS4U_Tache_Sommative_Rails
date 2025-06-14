@@ -1,6 +1,6 @@
 require "faker"
 namespace :db do 
-	task seed: :environment do 
+	task seed_custom: :environment do 
 		puts "Seeding database"
 
 		I18n.locale = :en
@@ -50,7 +50,7 @@ namespace :db do
 
      # Subjects
     alphabet = %w[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]
-		subjects = Array.new(30) {Faker::Educator.subject}
+		subjects = Array.new(10) {Faker::Educator.subject}
 		subjects = subjects.uniq
 		subjects.each do |subject|
 		  code = Array.new(3) {alphabet.sample}
@@ -97,7 +97,7 @@ namespace :db do
 		 teacher_ids = Teacher.pluck(:id)
 
      # Courses
-		 20.times do
+		 40.times do
 		   code_arr = Array.new(6) {alphabet.sample}
 		   subject = Subject.find(subject_ids.sample)
 		   year = rand(23..25)
@@ -117,7 +117,7 @@ namespace :db do
      # Prerequisite Courses
       (Course.count * 3).times do 
 		    course = Course.order("RANDOM()").first
-        prerequisite = Course.where.not(id: course.id).where(subject_id: course.subject_id).first
+        prerequisite = Course.where.not(id: course.id).where(subject_id: course.subject_id).order("RANDOM()").first
         if prerequisite
           CoursePrerequisite.create(course_id: course.id, prerequisite_course_id: prerequisite.id)
         end

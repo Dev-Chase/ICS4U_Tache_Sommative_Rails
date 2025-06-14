@@ -6,7 +6,11 @@ class CoursesController < ApplicationController
     if params[:student_id]
       @courses = Course.joins(:student_courses).where("student_courses.student_id=?", params[:student_id]).select("courses.*")
     elsif params[:course_id]
+      # puts("SEARCHING FOR #{Course.find(params[:course_id]).name}'s prerequisites!")
       @courses = Course.find(params[:course_id]).prerequisites
+      # @courses = Course.where(id: params[:course_id])
+      # @courses = Course.joins("INNER JOIN course_prerequisites ON courses.id=course_prerequisites.prerequisite_course_id").where("course_prerequisites.course_id=?", params[:course_id])
+      # SELECT courses.* FROM CoursePrerequisites INNER JOIN Courses ON Courses.id=CoursePrerequisites.prerequisite_course_id
     else
       @courses = Course.all
     end
